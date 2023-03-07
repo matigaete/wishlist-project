@@ -12,23 +12,23 @@ const WishlistPage = () => {
 
 	useEffect(() => {
 		fetch('http://localhost:3000/products')
-			.then(res => res.json())
-			.then(result => {
+			.then((res) => res.json())
+			.then((result) => {
 				let pvAux = 0
 				let totalAux = 0
-				result.forEach(item => {
+				result.forEach((item) => {
 					pvAux += item.pvValue
 					totalAux += item.wholesalePrice
 				})
-				const list = result.map(item => {
+				const list = result.map((item) => {
 					return {
 						...item,
 						qty: 1,
 					}
 				})
 				setList(list)
-				setPvTotal(pvAux)
-				setTotal(totalAux)
+				setPvTotal(pvAux.toFixed(0))
+				setTotal(totalAux.toFixed(2))
 			})
 	}, [])
 
@@ -39,19 +39,19 @@ const WishlistPage = () => {
 			pvAux = (pvAux + pvValue) * qty
 			totalAux = (totalAux + wholesalePrice) * qty
 		})
-		setPvTotal(pvAux)
-		setTotal(totalAux)
+		setPvTotal(pvAux.toFixed(0))
+		setTotal(totalAux.toFixed(2))
 	}, [list])
 
-	const handleRemove = code => {
-		const newList = list.filter(item => item.code !== code)
+	const handleRemove = (code) => {
+		const newList = list.filter((item) => item.code !== code)
 		setList(newList)
 	}
 
 	const handleAddAll = () => {}
 
 	const handleRefresh = (code, newQty) => {
-		const id = list.findIndex(item => item.code === code)
+		const id = list.findIndex((item) => item.code === code)
 		const newList = [...list]
 		newList[id].qty = newQty
 		setList(newList)
@@ -81,7 +81,7 @@ const WishlistPage = () => {
 				<Col>
 					<button
 						className='btn btn-info'
-						onClick={event => {
+						onClick={(event) => {
 							event.target.className = 'btn btn-info removed'
 						}}
 					>
@@ -91,7 +91,7 @@ const WishlistPage = () => {
 			</Row>
 			<Row>
 				<Stack className='wishlist--list' gap={3}>
-					{list.map(item => {
+					{list.map((item) => {
 						return (
 							<WishlistItem
 								key={item.code}

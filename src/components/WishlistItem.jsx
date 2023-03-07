@@ -23,7 +23,7 @@ const WishlistItem = ({ item, handleRemove, handleRefresh }) => {
 	} = item
 	const dispatch = useDispatch()
 
-	const handleChangeQty = value => {
+	const handleChangeQty = (value) => {
 		setActualCount(value)
 		handleRefresh(code, value)
 	}
@@ -36,7 +36,7 @@ const WishlistItem = ({ item, handleRemove, handleRefresh }) => {
 		}, 2000)
 	}
 
-	const handleRemoveItem = event => {
+	const handleRemoveItem = (event) => {
 		setShowRemove(true)
 		event.target.parentNode.parentNode.className = 'wishlist--item row removed'
 		setTimeout(() => {

@@ -5,7 +5,7 @@ import { useState } from 'react'
 const QuantitySelector = ({ onChange, qty }) => {
 	const [count, setCount] = useState(qty)
 
-	const changeQty = value => {
+	const changeQty = (value) => {
 		onChange(value > 1 ? value : 1)
 		setCount(value > 1 ? value : 1)
 	}
@@ -23,7 +23,7 @@ const QuantitySelector = ({ onChange, qty }) => {
 				<input
 					className='quantity--input text-center'
 					value={count}
-					onChange={event => changeQty(event.target.value)}
+					onChange={(event) => changeQty(event.target.value)}
 				></input>
 			</Col>
 			<Col
