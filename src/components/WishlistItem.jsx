@@ -25,7 +25,7 @@ const WishlistItem = ({ item, handleRemove, handleRefresh }) => {
 
 	const handleChangeQty = value => {
 		setActualCount(value)
-		handleRefresh(1, value)
+		handleRefresh(code, value)
 	}
 
 	const handleAddToBag = () => {

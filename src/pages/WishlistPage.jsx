@@ -32,6 +32,17 @@ const WishlistPage = () => {
 			})
 	}, [])
 
+	useEffect(() => {
+		let pvAux = 0
+		let totalAux = 0
+		list.forEach(({ pvValue, wholesalePrice, qty }) => {
+			pvAux = (pvAux + pvValue) * qty
+			totalAux = (totalAux + wholesalePrice) * qty
+		})
+		setPvTotal(pvAux)
+		setTotal(totalAux)
+	}, [list])
+
 	const handleRemove = code => {
 		const newList = list.filter(item => item.code !== code)
 		setList(newList)
@@ -41,9 +52,8 @@ const WishlistPage = () => {
 
 	const handleRefresh = (code, newQty) => {
 		const id = list.findIndex(item => item.code === code)
-
-		const newList = { ...list }
-		newList[code].qty = newQty
+		const newList = [...list]
+		newList[id].qty = newQty
 		setList(newList)
 	}
 
