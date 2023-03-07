@@ -1,0 +1,52 @@
+{
+	"products": [
+		{
+			"code": 1,
+			"productName": "Adaptiv™ Touch",
+			"imgUrl": "src/assets/products/adaptiv.svg",
+			"retailPrice": 37.67,
+			"wholesalePrice": 28.25,
+			"pvValue": 23.34
+		},
+		{
+			"code": 2,
+			"productName": "Basil Oil",
+			"imgUrl": "src/assets/products/basil.svg",
+			"retailPrice": 37.67,
+			"wholesalePrice": 28.25,
+			"pvValue": 23.34
+		},
+		{
+			"code": 3,
+			"productName": "Black Pepper Oil",
+			"imgUrl": "src/assets/products/black-pepper.svg",
+			"retailPrice": 26.67,
+			"wholesalePrice": 22.0,
+			"pvValue": 22.0
+		},
+		{
+			"code": 4,
+			"productName": "Cardamom Oil",
+			"imgUrl": "src/assets/products/cardamom.svg",
+			"retailPrice": 26.67,
+			"wholesalePrice": 19.0,
+			"pvValue": 19.0
+		},
+		{
+			"code": 5,
+			"productName": "Cassia Oil",
+			"imgUrl": "src/assets/products/cassia.svg",
+			"retailPrice": 26.67,
+			"wholesalePrice": 24.0,
+			"pvValue": 24.0
+		},
+		{
+			"code": 6,
+			"productName": "dōTERRA Console® Touch ",
+			"imgUrl": "src/assets/products/on-guard.svg",
+			"retailPrice": 26.67,
+			"wholesalePrice": 26.0,
+			"pvValue": 26.0
+		}
+	]
+}
