@@ -24,6 +24,7 @@ const WishlistItem = ({ item, handleRemove, handleRefresh }) => {
 	const dispatch = useDispatch()
 
 	const handleChangeQty = (value) => {
+		console.log('handleChangeQty')
 		setActualCount(value)
 		handleRefresh(code, value)
 	}

@@ -4,11 +4,14 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import WishlistItem from '../components/WishlistItem'
 import { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { incrementByAmount } from '../reducers/counterReducer'
+import PricingSection from '../components/PricingSection'
 
 const WishlistPage = () => {
 	const [list, setList] = useState([])
-	const [pvTotal, setPvTotal] = useState(0)
-	const [total, setTotal] = useState(0)
+
+	const dispatch = useDispatch()
 
 	useEffect(() => {
 		fetch('http://localhost:3000/products')
@@ -27,28 +30,20 @@ const WishlistPage = () => {
 					}
 				})
 				setList(list)
-				setPvTotal(pvAux.toFixed(0))
-				setTotal(totalAux.toFixed(2))
+				// setPvTotal(pvAux.toFixed(0))
+				// setTotal(totalAux.toFixed(2))
 			})
 	}, [])
-
-	useEffect(() => {
-		let pvAux = 0
-		let totalAux = 0
-		list.forEach(({ pvValue, wholesalePrice, qty }) => {
-			pvAux = (pvAux + pvValue) * qty
-			totalAux = (totalAux + wholesalePrice) * qty
-		})
-		setPvTotal(pvAux.toFixed(0))
-		setTotal(totalAux.toFixed(2))
-	}, [list])
 
 	const handleRemove = (code) => {
 		const newList = list.filter((item) => item.code !== code)
 		setList(newList)
 	}
 
-	const handleAddAll = () => {}
+	const handleAddAll = () => {
+		const qty = list.reduce((prev, { qty }) => Number(prev) + Number(qty), 0)
+		dispatch(incrementByAmount(qty))
+	}
 
 	const handleRefresh = (code, newQty) => {
 		const id = list.findIndex((item) => item.code === code)
@@ -64,14 +59,7 @@ const WishlistPage = () => {
 					<h1>My wishlist</h1>
 				</Col>
 			</Row>
-			<Row className='pricing'>
-				<Col>
-					<span className='total-label'>Item Total: </span>
-					<span className='total-value'>${total} </span>
-					<span className='totalpv-label'>PV Total: </span>
-					<span className='totalpv-value'>{pvTotal}</span>
-				</Col>
-			</Row>
+			<PricingSection list={list} />
 			<Row className='wishlist__actions'>
 				<Col>
 					<button className='btn btn-primary' onClick={handleAddAll}>
