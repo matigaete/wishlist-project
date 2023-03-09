@@ -79,10 +79,22 @@ const Header = () => {
 								Account
 							</NavLink>
 							<NavLink className='text-center'>
-								<span className='icon icon--bag'>
+								<span className='icon icon--bag' onFocus={() => }>
 									<span className='span-minicart'>{count || ''}</span>
 								</span>
 								Bag
+								<div className='minicart--section'>
+									<div className='minicart--header'>
+										Items (1) Total: $22.00 PV 22.00
+									</div>
+									<div className='minicart--body'>
+										<img src='/src/assets/products/adaptiv.svg' />
+										<span>Arborvitae</span>
+										<span>5 mL</span>
+										$22.00 PV 22.00 Qty: 1
+									</div>
+									<div className='minicart--footer'></div>
+								</div>
 							</NavLink>
 						</Navbar.Collapse>
 					</Navbar>
