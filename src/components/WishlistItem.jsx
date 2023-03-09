@@ -25,7 +25,6 @@ const WishlistItem = ({ item, handleRemove, handleRefresh }) => {
 	const dispatch = useDispatch()
 
 	const handleChangeQty = (value) => {
-		console.log('handleChangeQty')
 		setActualCount(value)
 		handleRefresh(code, value)
 	}
@@ -40,7 +39,6 @@ const WishlistItem = ({ item, handleRemove, handleRefresh }) => {
 
 	const handleRemoveItem = (event) => {
 		setShowRemove(true)
-		event.target.parentNode.parentNode.className = 'wishlist--item row removed'
 		setTimeout(() => {
 			setShowRemove(false)
 			handleRemove(code)
@@ -48,7 +46,7 @@ const WishlistItem = ({ item, handleRemove, handleRefresh }) => {
 	}
 
 	return (
-		<Row className='wishlist--item'>
+		<Row className={`wishlist--item ${showRemove ? 'removed' : ''}`}>
 			<Col xs={12} md={2} lg={1} className='text-center'>
 				<img src='src/assets/icons/heart.svg' alt='heart' />
 			</Col>

@@ -4,11 +4,9 @@ import Col from 'react-bootstrap/Col'
 import { useState } from 'react'
 
 const QuantitySelector = ({ onChange, qty }) => {
-	console.log('quantity')
 	const [count, setCount] = useState(qty)
 
 	const changeQty = (value) => {
-		console.log('changeQty')
 		onChange(value > 1 ? value : 1)
 		setCount(value > 1 ? value : 1)
 	}
