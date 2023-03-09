@@ -1,0 +1,49 @@
+@import 'variables.scss';
+
+.wishlist--item {
+	position: relative;
+	align-items: center;
+	justify-content: space-evenly;
+	border: 1px #c1c7cd solid;
+	border-radius: 10px;
+	opacity: 1;
+	transform: translateY(0);
+	&.row > * {
+		padding: 0;
+	}
+
+	&.removed {
+		opacity: 0;
+		transform: translateY(-25px);
+		transition: all 2s ease-out;
+	}
+
+	.alert {
+		position: absolute;
+		display: flex;
+		align-items: center;
+		text-align: center;
+		width: 400px;
+		height: 60px;
+		top: 5px;
+		background-color: $body-blue;
+	}
+
+	.item--name {
+		color: #0067dc;
+		font-weight: bold;
+	}
+
+	.item--pv {
+		color: $lavender;
+	}
+
+	.item--retail {
+		color: $body-blue;
+	}
+
+	.item--wholesale {
+		color: $body-blue;
+		font-weight: bold;
+	}
+}

@@ -1,3 +1,4 @@
+import './../styles/QuantitySelector.scss'
 import Stack from 'react-bootstrap/Stack'
 import Col from 'react-bootstrap/Col'
 import { useState } from 'react'

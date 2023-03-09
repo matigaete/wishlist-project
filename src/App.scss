@@ -1,0 +1,61 @@
+@import './styles/variables.scss';
+
+#root {
+	width: 100%;
+	min-height: 100vh;
+	margin: 0 auto;
+
+	.btn-primary {
+		border-radius: 20px;
+		border: 3px solid $lavender;
+		background-color: $white;
+		color: $lavender;
+		font-weight: bold;
+	}
+
+	.btn-secondary {
+		border-radius: 20px;
+		border: 3px solid $white;
+		background-color: $white;
+		margin-left: -15px;
+		color: $grey;
+	}
+
+	.btn-info {
+		min-width: 132px;
+		background-color: $white;
+		border-radius: 20px;
+		border: 3px solid $grey;
+		color: $body-blue;
+		float: right;
+		font-weight: bold;
+	}
+
+	.title,
+	.wishlist__actions {
+		padding: 20px 0;
+	}
+
+	.icon {
+		position: relative;
+		&::before {
+			width: 3.5em;
+			height: 3.5em;
+			content: '';
+			display: inline-block;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 100% 100%;
+			background-clip: border-box;
+		}
+		&--bag::before {
+			background-image: url('src/assets/icons/bag-filled.svg');
+		}
+		&--account::before {
+			background-image: url('src/assets/icons/my-account.svg');
+		}
+		&--help::before {
+			background-image: url('src/assets/icons/help.svg');
+		}
+	}
+}

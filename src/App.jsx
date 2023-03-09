@@ -1,13 +1,11 @@
-import './App.css'
+import './App.scss'
 import Header from './components/Header'
 import WishlistPage from './pages/WishlistPage'
 
 function App() {
 	return (
 		<>
-			<header>
-				<Header />
-			</header>
+			<Header />
 			<WishlistPage />
 		</>
 	)

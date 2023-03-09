@@ -1,0 +1,16 @@
+.quantity--selector {
+	width: 100%;
+	border: 1px solid #bec4c9;
+	border-radius: 5px;
+}
+
+.quantity--input {
+	border: 0;
+	width: 100%;
+}
+
+.quantity--minus,
+.quantity--plus {
+	padding: 10px;
+	cursor: pointer;
+}
