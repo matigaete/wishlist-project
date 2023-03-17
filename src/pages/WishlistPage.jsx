@@ -29,8 +29,8 @@ const WishlistPage = () => {
 
 	const handleRefresh = (code, newQty) => {
 		const id = list.findIndex((item) => item.code === code)
-		const newList = [...list]
-		newList[id].qty = newQty
+		const item = { ...list[id], qty: newQty }
+		const newList = list.with(id, item)
 		setList(newList)
 	}
 
