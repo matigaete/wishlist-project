@@ -37,7 +37,7 @@ const WishlistItem = ({ item, handleRemove, handleRefresh }) => {
 		}, 2000)
 	}
 
-	const handleRemoveItem = (event) => {
+	const handleRemoveItem = () => {
 		setShowRemove(true)
 		setTimeout(() => {
 			setShowRemove(false)
